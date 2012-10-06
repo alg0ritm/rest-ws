@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2012 2:33:08 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Users" table="users" catalog="betonit">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="email" type="string">
+            <column name="email" length="254" not-null="true" unique="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="32" not-null="true" unique="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="first_name" length="254" not-null="true" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="64" not-null="true" />
+        </property>
+        <property name="logins" type="int">
+            <column name="logins" not-null="true" />
+        </property>
+        <property name="lastLogin" type="java.lang.Integer">
+            <column name="last_login" />
+        </property>
+        <property name="resetToken" type="string">
+            <column name="reset_token" length="254" />
+        </property>
+        <property name="registered" type="timestamp">
+            <column name="registered" length="19" not-null="true" />
+        </property>
+        <property name="balance" type="int">
+            <column name="balance" not-null="true" />
+        </property>
+        <property name="lastGamePlayed" type="timestamp">
+            <column name="last_game_played" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
