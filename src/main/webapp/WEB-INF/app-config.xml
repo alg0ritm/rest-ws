@@ -32,6 +32,9 @@
 			<list>
 				<value>accounts.Account</value>
 				<value>accounts.Beneficiary</value>
+				<value>models.Games</value>
+				<value>models.Users</value>
+				<value>models.Results</value>
 			</list>
 		</property>
 	</bean>

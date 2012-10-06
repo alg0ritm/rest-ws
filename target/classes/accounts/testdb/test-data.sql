@@ -77,5 +77,8 @@ insert into T_ACCOUNT_BENEFICIARY (ACCOUNT_ID, NAME, ALLOCATION_PERCENTAGE, SAVI
 insert into T_RESTAURANT (MERCHANT_NUMBER, NAME, BENEFIT_PERCENTAGE, BENEFIT_AVAILABILITY_POLICY) 
 	values ('1234567890', 'AppleBees', .08, 'A');
 	
-INSERT INTO users (id, email, username, first_name, surname, password, logins, last_login, reset_token, registered, balance, last_game_played) 
-VALUES(9, 'skyzer@gmail.com', 'skyzer', 'Artur', NULL, 'a2264195660b2fb5d7704f9ed6ed97e7a8f955d2396560e521369578703caddd', 0, NULL, NULL, '2012-10-06 01:26:59', 200, NULL);
+INSERT INTO Users (id, email, username, first_name, surname, password, logins, last_login, reset_token, registered, balance, last_game_played) 
+VALUES(9, 'skyzer@gmail.com', 'skyzer', 'Artur', NULL, '1234', 0, NULL, NULL, '2012-10-06 01:26:59', 200, '2012-10-06 01:26:59');
+
+INSERT INTO Games (id,game_name,added) 
+VALUES(1, 'fightClub', '2012-10-06 01:26:59');

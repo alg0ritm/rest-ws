@@ -28,11 +28,11 @@ import common.money.Percentage;
 public class Account {
 
 	@Id
-	@Column(name = "ID")
+	@Column(name = "id")
 	@GeneratedValue
 	private Integer entityId;
 
-	@Column(name = "NUMBER")
+	@Column(name = "number")
 	private String number;
 
 	@Column(name = "NAME")

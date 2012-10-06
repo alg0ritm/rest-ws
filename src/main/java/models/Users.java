@@ -17,15 +17,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Users")
-public class Users  implements java.io.Serializable {
-	
-	
-	
+public class Users {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue
      private Integer id;
-	
 	@Column(name = "email")
      private String email;
 	@Column(name = "username")
@@ -40,13 +36,13 @@ public class Users  implements java.io.Serializable {
      private int logins;
 	@Column(name = "last_login")
      private Integer lastLogin;
-	@Column(name = "reser_token")
+	@Column(name = "reset_token")
      private String resetToken;
 	@Column(name = "registered")
      private Date registered;
 	@Column(name = "balance")
      private int balance;
-	@Column(name = "last_game_palyed")
+	@Column(name = "last_game_played")
      private Date lastGamePlayed;
 	
 

@@ -6,9 +6,11 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.Random;
 
 import models.LoginInfo;
+import models.Users;
 
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
@@ -20,7 +22,7 @@ import accounts.Beneficiary;
 
 import common.money.Percentage;
 
-public class AccountClientTests {
+public class UserRestTests {
 	
 	/**
 	 * server URL ending with the servlet mapping on which the application can be reached.
@@ -31,14 +33,14 @@ public class AccountClientTests {
 	private Random random = new Random();
 	
 	@Test
-	public void listAccounts() {
-		String url = BASE_URL + "/accounts";
+	public void listUsers() {
+		String url = BASE_URL + "/users";
 		// we have to use Account[] instead of List<Account>, or Jackson won't know what type to unmarshal to
 		Account[] accounts = restTemplate.getForObject(url, Account[].class);
-		assertTrue(accounts.length >= 21);
-		assertEquals("Keith and Keri Donald", accounts[0].getName());
+		assertTrue(accounts.length > 0);
+		/*assertEquals("Keith and Keri Donald", accounts[0].getName());
 		assertEquals(2, accounts[0].getBeneficiaries().size());
-		assertEquals(Percentage.valueOf("50%"), accounts[0].getBeneficiary("Annabelle").getAllocationPercentage());
+		assertEquals(Percentage.valueOf("50%"), accounts[0].getBeneficiary("Annabelle").getAllocationPercentage());*/
 	}
 	
 	@Test
@@ -52,7 +54,7 @@ public class AccountClientTests {
 	
 	@Test
 	public void loginUserTest() {
-		String url = BASE_URL + "/users/login";
+		String url = BASE_URL + "/user/login";
 		// use a unique number to avoid conflicts
 		LoginInfo loginInfo = new LoginInfo("skyzer", "1234");
 		String newLoginLocation = restTemplate.postForObject(url, loginInfo, String.class);
@@ -72,6 +74,7 @@ public class AccountClientTests {
 		Account account = new Account(number, "John Doe");
 		account.addBeneficiary("Jane Doe");
 		URI newAccountLocation = restTemplate.postForLocation(url, account);
+		
 		
 		Account retrievedAccount = restTemplate.getForObject(newAccountLocation, Account.class);
 		assertEquals(account, retrievedAccount);
@@ -95,3 +98,4 @@ public class AccountClientTests {
 		}
 	}
 }
+

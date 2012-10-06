@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Games;
+import models.LoginInfo;
+import models.Users;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -97,10 +99,26 @@ public class AccountController {
 		response.setHeader("Location", getLocationForChildResource(request, account.getEntityId()));
 	}
 	
+	@RequestMapping(value="/users/login", method=RequestMethod.POST)
+	public String createAccount(@RequestBody LoginInfo loginInfo, 
+							  HttpServletRequest request, 
+							  HttpServletResponse response) {
+		String account = accountManager.login(loginInfo);
+		return account;
+		//response.setHeader("Location", getLocationForChildResource(request, account.getEntityId()));
+	}
+	
 	@RequestMapping(value="/users", method=RequestMethod.GET)
-	public @ResponseBody List<Account> usersSummary() {
+	public @ResponseBody List<Users> usersSummary() {
 		
 		return accountManager.getAllUsers();
+		
+	}
+	
+	@RequestMapping(value="/games", method=RequestMethod.GET)
+	public @ResponseBody List<Games> gamesSummary() {
+		
+		return accountManager.getAllGames();
 		
 	}
 

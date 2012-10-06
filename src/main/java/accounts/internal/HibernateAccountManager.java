@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
+import models.Games;
+import models.LoginInfo;
+import models.Users;
+
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -83,7 +87,21 @@ public class HibernateAccountManager implements AccountManager {
 	}
 
 	@Override
-	public List<Account> getAllUsers() {
+	public List<Users> getAllUsers() {
 		return sessionFactory.getCurrentSession().createQuery("from Users").list();
 	}
+	
+	@Override
+	public List<Games> getAllGames() {
+		return sessionFactory.getCurrentSession().createQuery("from Games").list();
+	}
+
+	@Override
+	public String login(LoginInfo user) {
+		sessionFactory.getCurrentSession().createQuery("from Users where user username=" + user.getLogin() + " and password=" + user.getPassword()).uniqueResult();
+		return null;
+	}
+
+	
+	
 }

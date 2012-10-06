@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Games")
-public class Games  implements java.io.Serializable {
+public class Games {
 
 	@Id
 	@Column(name = "id")

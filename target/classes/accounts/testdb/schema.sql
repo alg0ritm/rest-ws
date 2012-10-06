@@ -6,9 +6,9 @@ drop table T_REWARD if exists;
 drop sequence S_REWARD_CONFIRMATION_NUMBER if exists;
 drop table DUAL_REWARD_CONFIRMATION_NUMBER if exists;
 
-CREATE TABLE games (id integer not null , game_name varchar(255) not null,added datetime not null,PRIMARY KEY (id));
-CREATE TABLE users (id integer NOT NULL,email varchar(254) NOT NULL,username varchar(32) NOT NULL,first_name varchar(254) NOT NULL,surname varchar(255),password varchar(64) NOT NULL,logins integer  NOT NULL ,last_login integer, reset_token varchar(254) ,registered datetime NOT NULL,balance integer NOT NULL,last_game_played datetime ,PRIMARY KEY (id));
-CREATE TABLE results (id integer NOT NULL,game_id integer NOT NULL,initiator integer NOT NULL,opponent integer NOT NULL,bet integer NOT NULL,result varchar(255) NOT NULL,start datetime NOT NULL,enddate datetime NOT NULL,PRIMARY KEY (id));
+CREATE TABLE Games (id integer not null, game_name varchar(255) not null,added datetime not null,PRIMARY KEY (id));
+CREATE TABLE Users (id integer NOT NULL,email varchar(254) NOT NULL,username varchar(32) NOT NULL,first_name varchar(254) NOT NULL,surname varchar(255),password varchar(64) NOT NULL,logins integer  NOT NULL ,last_login integer, reset_token varchar(254) ,registered datetime NOT NULL,balance integer NOT NULL,last_game_played datetime ,PRIMARY KEY (id));
+CREATE TABLE Results (id integer NOT NULL,game_id integer NOT NULL,initiator integer NOT NULL,opponent integer NOT NULL,bet integer NOT NULL,result varchar(255) NOT NULL,start datetime NOT NULL,enddate datetime NOT NULL,PRIMARY KEY (id));
 
 
 create table T_ACCOUNT (ID integer identity primary key, NUMBER varchar(9), NAME varchar(50) not null, unique(NUMBER));

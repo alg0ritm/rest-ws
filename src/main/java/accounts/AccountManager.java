@@ -3,6 +3,10 @@ package accounts;
 import java.util.List;
 import java.util.Map;
 
+import models.Games;
+import models.LoginInfo;
+import models.Users;
+
 import common.money.Percentage;
 
 /**
@@ -65,5 +69,10 @@ public interface AccountManager {
 	 */
 	void removeBeneficiary(Integer accountId, String beneficiaryName);
 
-	List<Account> getAllUsers();
+	List<Users> getAllUsers();
+
+	List<Games> getAllGames();
+
+	String login(LoginInfo loginInfo);
+
 }

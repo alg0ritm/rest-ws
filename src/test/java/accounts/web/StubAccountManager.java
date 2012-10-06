@@ -7,6 +7,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import models.Games;
+import models.LoginInfo;
+import models.Users;
+
 import org.springframework.orm.ObjectRetrievalFailureException;
 
 import accounts.Account;
@@ -78,5 +82,24 @@ public class StubAccountManager implements AccountManager {
 		newAccount.setEntityId(nextEntityId.getAndIncrement());
 		return newAccount;
 	}
+
+	@Override
+	public List<Users> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Games> getAllGames() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String login(LoginInfo loginInfo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
