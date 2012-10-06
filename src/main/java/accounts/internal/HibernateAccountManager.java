@@ -98,8 +98,8 @@ public class HibernateAccountManager implements AccountManager {
 
 	@Override
 	public String login(LoginInfo user) {
-		sessionFactory.getCurrentSession().createQuery("from Users where user username=" + user.getLogin() + " and password=" + user.getPassword()).uniqueResult();
-		return null;
+		//Users users = sessionFactory.getCurrentSession().createQuery("from Users where user username=" + user.getLogin() + " and password=" + user.getPassword()).uniqueResult();
+		return "OK";
 	}
 
 	

@@ -99,8 +99,10 @@ public class AccountController {
 		response.setHeader("Location", getLocationForChildResource(request, account.getEntityId()));
 	}
 	
+	
 	@RequestMapping(value="/users/login", method=RequestMethod.POST)
-	public String createAccount(@RequestBody LoginInfo loginInfo, 
+	@ResponseStatus(HttpStatus.CREATED)
+	public @ResponseBody String createAccount(@RequestBody LoginInfo loginInfo, 
 							  HttpServletRequest request, 
 							  HttpServletResponse response) {
 		String account = accountManager.login(loginInfo);
